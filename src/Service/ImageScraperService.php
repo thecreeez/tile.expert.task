@@ -61,7 +61,7 @@ readonly class ImageScraperService
             }
 
             $imageSize = getimagesize($source);
-            if ($imageSize[0] < $width && $imageSize[1] < $height) {
+            if ($imageSize[0] < $width || $imageSize[1] < $height) {
                 return;
             }
             $images[] = $source;
