@@ -1,0 +1,3 @@
+errors:
+  scrap:
+    contentType: 'Requests with Content-Type: "contentType" is not supported (supports only text/html)'
