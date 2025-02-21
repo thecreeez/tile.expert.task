@@ -3,7 +3,7 @@ composer.lock
 /public/files
 /public/dump.sql
 /public/dump.zip
-/public/images
+/public/images/*
 !/public/images/.gitkeep
 /public/videos
 ###> symfony/framework-bundle ###
