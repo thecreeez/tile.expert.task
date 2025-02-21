@@ -15,6 +15,8 @@ use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
 class ImageScrapController extends AbstractController
 {
+    public const int IMAGE_SIZE = 200;
+
     public function __construct(
         private readonly ImageScraperService $imageScraperService,
         private readonly ImageEditorService  $imageEditorService,
@@ -31,8 +33,8 @@ class ImageScrapController extends AbstractController
 
             foreach ($imageUrls as $url) {
                 $image = $this->imageEditorService->makeImage($url);
-                $this->imageEditorService->fit($image);
-                $this->imageEditorService->text($image, $request->text, 100, 100);
+                $this->imageEditorService->fit($image, self::IMAGE_SIZE);
+                $this->imageEditorService->text($image, $request->text, self::IMAGE_SIZE / 2, self::IMAGE_SIZE / 2);
                 $fileName = $this->imageEditorService->export($image);
 
                 $image = new Image();

@@ -15,7 +15,7 @@
     </div>
     <h2 class="text-center">Загрузка картинок</h2>
     <div class="mb-3">
-        <label class="form-label">Ссылка на страницу:</label>
+        <label class="form-label">Ссылка на страницу*:</label>
         <input type="text" id="pageUrl" class="form-control">
     </div>
     <div class="row">
@@ -33,6 +33,7 @@
         <input type="text" id="overlayText" maxlength="30" class="form-control">
     </div>
     <button class="btn btn-primary w-100" onclick="sendRequest()">Загрузить</button>
+    * Обрабатывается только статический контент
     <div class="image-container mt-4" id="images"></div>
 </div>
 <script src="js/script.js"></script>

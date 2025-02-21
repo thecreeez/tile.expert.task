@@ -30,9 +30,19 @@ class ImageEditorService
 
     public function fit(ImageInterface $image, int $size = 200): ImageInterface
     {
-        $width = $image->width() / ($image->height() / $size);
-        $height = $size;
-        return $image->resize(width: $width, height: $height)->crop(200, 200, ($width - $size) / 2);
+        if ($image->height() < $image->width()) {
+            $width = $image->width() / ($image->height() / $size);
+            $height = $size;
+            $offsetX = ($width - $size) / 2;
+            $offsetY = 0;
+        } else {
+            $width = $size;
+            $height = $image->height() / ($image->width() / $size);
+            $offsetX = 0;
+            $offsetY = ($height - $size) / 2;
+        }
+
+        return $image->resize(width: $width, height: $height)->crop($size, $size, $offsetX, $offsetY);
     }
 
     public function text(ImageInterface $image, string $text, int $x, int $y, string $color = 'white', $size = 200): ImageInterface
