@@ -1,5 +1,13 @@
 ## tile.expert
 
+[Demo](http://dgrew.ru:5050/)
+
+Admin data:
+```
+login: admin
+password: foo
+```
+
 - rebase .env to .env.local
 - change DATABASE_URL
 
