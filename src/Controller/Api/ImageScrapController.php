@@ -42,10 +42,14 @@ class ImageScrapController extends AbstractController
             }
 
             return $this->json($images, Response::HTTP_OK);
-        } catch (TransportExceptionInterface|Exception $e) {
+        } catch (TransportExceptionInterface $e) {
             return $this->json([
                 'message' => $e->getMessage(),
-            ], 500);
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        } catch (Exception $e) {
+            return $this->json([
+                'message' => $e->getMessage(),
+            ], Response::HTTP_BAD_REQUEST);
         }
     }
 }
