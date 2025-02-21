@@ -26,3 +26,4 @@ composer.lock
 ###< symfony/phpunit-bridge ###
 
 .env
+public/tmp

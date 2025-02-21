@@ -42,6 +42,7 @@
     "symfony/string": "7.*",
     "symfony/translation": "*",
     "symfony/twig-bundle": "7.*",
+    "symfony/uid": "*",
     "symfony/validator": "7.*",
     "symfony/web-link": "7.*",
     "symfony/yaml": "7.*",
