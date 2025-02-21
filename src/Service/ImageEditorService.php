@@ -44,7 +44,7 @@ class ImageEditorService
             $fontSize += 1;
             $bbox = imagettfbbox($fontSize, 0, $fontPath, $text);
             $width = $bbox[2] - $bbox[0];
-        } while ($width < $size * 0.75);
+        } while ($width < $size * 0.75 && $fontSize < 150);
 
         $font = (new Font($fontPath))
             ->setColor($color)

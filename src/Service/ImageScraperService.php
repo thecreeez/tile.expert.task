@@ -48,6 +48,10 @@ readonly class ImageScraperService
         $crawler->filter('img')->each(function (Crawler $node, $i) use (&$images, $url, $width, $height) {
             $source = $node->attr('src');
 
+            if (!$source) {
+                return;
+            }
+            
             if (str_ends_with($this->getUrlWithoutQuery($source), '.svg')) {
                 return;
             }

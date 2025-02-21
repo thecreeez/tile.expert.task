@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка картинок</title>
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="overlay" id="overlay-loader">
+        <span class="loader"></span>
+    </div>
+    <h2 class="text-center">Загрузка картинок</h2>
+    <div class="mb-3">
+        <label class="form-label">Ссылка на страницу:</label>
+        <input type="text" id="pageUrl" class="form-control">
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Мин. ширина:</label>
+            <input type="number" id="minWidth" value="100" min="0" class="form-control">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label">Мин. высота:</label>
+            <input type="number" id="minHeight" value="100" min="0" class="form-control">
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Текст на картинках:</label>
+        <input type="text" id="overlayText" maxlength="30" class="form-control">
+    </div>
+    <button class="btn btn-primary w-100" onclick="sendRequest()">Загрузить</button>
+    <div class="image-container mt-4" id="images"></div>
+</div>
+<script src="js/script.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>

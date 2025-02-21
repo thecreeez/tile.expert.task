@@ -17,7 +17,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
 #[ORM\HasLifecycleCallbacks]
-#[GetCollection]
+#[GetCollection(order: ['createdAt' => 'DESC'])]
 #[Post(
     uriTemplate: 'images/scrap',
     controller: ImageScrapController::class,
