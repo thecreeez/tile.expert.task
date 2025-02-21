@@ -28,18 +28,27 @@ class ImageEditorService
         return $this->imageManager->read($path);
     }
 
-    public function fit(ImageInterface $image): ImageInterface
+    public function fit(ImageInterface $image, int $size = 200): ImageInterface
     {
-        $width = 200;
-        $height = 200;
-        return $image->resize(width: $width, height: $height);
+        $width = $image->width() / ($image->height() / $size);
+        $height = $size;
+        return $image->resize(width: $width, height: $height)->crop(200, 200, ($width - $size) / 2);
     }
 
-    public function text(ImageInterface $image, string $text, int $x, int $y): ImageInterface
+    public function text(ImageInterface $image, string $text, int $x, int $y, string $color = 'white', $size = 200): ImageInterface
     {
-        $font = (new Font('fonts/consolas.ttf'))
-            ->setColor('black')
-            ->setSize(30)
+        $fontPath = 'fonts/consolas.ttf';
+        $fontSize = 16;
+
+        do {
+            $fontSize += 1;
+            $bbox = imagettfbbox($fontSize, 0, $fontPath, $text);
+            $width = $bbox[2] - $bbox[0];
+        } while ($width < $size * 0.75);
+
+        $font = (new Font($fontPath))
+            ->setColor($color)
+            ->setSize($fontSize)
             ->setAlignment('center')
             ->setValignment('middle');
         return $image->text($text, $x, $y, $font);
