@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Image;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -38,6 +39,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToCrud('Изображения', 'fa fa-image', Image::class);
         yield MenuItem::section('Настройки');
         yield MenuItem::linkToCrud('Пользователи', 'fas fa-user-gear', User::class)
             ->setPermission('ROLE_ADMIN');
