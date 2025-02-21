@@ -4,6 +4,7 @@ composer.lock
 /public/dump.sql
 /public/dump.zip
 /public/images
+!/public/images/.gitkeep
 /public/videos
 ###> symfony/framework-bundle ###
 /.env.local
@@ -19,11 +20,6 @@ composer.lock
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
-
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
 
 .env
 public/tmp
